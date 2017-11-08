@@ -3,8 +3,16 @@ import React from 'react';
 
 class Popular extends React.Component {
     render() {
+        var languages = ['All','JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
+
         return (
-            <div>Popular!</div>
+            <ul className="languages">
+                { languages.map( (lang) => 
+                <li key="{lang}">
+                    {lang}
+                </li>
+                )}
+            </ul>
         )
     }
 }
