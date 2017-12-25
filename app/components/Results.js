@@ -3,16 +3,16 @@ var queryString = require('query-string');
 var api = require('../utils/api');
 var Link = require('react-router-dom').Link;
 var PropTypes = require('prop-types');
-import { PlayerPreview } from './PlayerPreview';
+var PlayerPreview = require('./PlayerPreview');
 
 
 
-function Profile () {
+function Profile (props) {
     
     var info = props.info;
-
+    console.log(info);
     return (
-        <PlayerPreview avatar={info.avatar.url} username={info.login}>
+        <PlayerPreview avatar={info.avatar_url} username={info.login}>
             <ul className='space-list-items'>
                 {info.name && <li>{info.name}</li>}
                 {info.location && <li>{info.location}</li>}

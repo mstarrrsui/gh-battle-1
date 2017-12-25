@@ -9,7 +9,7 @@ body {
 
   .row {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
   }
 
   .column {
@@ -110,6 +110,11 @@ body {
   .avatar {
     width: 150px;
     border-radius: 50%;
+  }
+
+  .space-list-items {
+    margin-bottom: 7px;
+    font-weight: bold;
   }
 
   .nav {

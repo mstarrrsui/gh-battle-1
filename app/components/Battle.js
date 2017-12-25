@@ -2,8 +2,7 @@ import React from 'react';
 var PropTypes = require('prop-types');
 //var Link = require('react-router-dom').Link;
 import { Link } from 'react-router-dom';
-import PlayerPreview from './PlayerPreview';
-//var PlayerPreview = require('./PlayerPreview');
+var PlayerPreview = require('./PlayerPreview');
 
 
 class PlayerInput extends React.Component {
