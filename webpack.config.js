@@ -2,16 +2,6 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
- 
-module.exports = {
-  plugins: [
-    new BundleAnalyzerPlugin()
-  ]
-}
-
-// NODE_ENV to production
-// uglify
-
 
 
 
