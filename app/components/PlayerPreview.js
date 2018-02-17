@@ -18,6 +18,7 @@ function PlayerPreview(props) {
 }
 
 PlayerPreview.propTypes = {
+    children: PropTypes.node,
     avatar: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired
 }

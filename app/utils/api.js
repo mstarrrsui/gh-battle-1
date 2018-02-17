@@ -1,4 +1,6 @@
 require("es6-promise").polyfill();
+import * as log from 'loglevel';
+
 var axios = require("axios");
 
 var id = "acb3ea7e34c441da65e0";
@@ -37,7 +39,7 @@ function calculateScore(profile, repos) {
 }
 
 function handleError(error) {
-  console.warn(error);
+  log.warn(error);
   return null;
 }
 

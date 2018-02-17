@@ -5,13 +5,15 @@ var Link = require('react-router-dom').Link;
 var PropTypes = require('prop-types');
 var PlayerPreview = require('./PlayerPreview');
 var Loading = require('./Loading');
+import * as log from 'loglevel';
+
 
 
 
 function Profile (props) {
     
     var info = props.info;
-    console.log(info);
+    log.debug(info);
     return (
         <PlayerPreview avatar={info.avatar_url} username={info.login}>
             <ul className='space-list-items'>
@@ -61,12 +63,12 @@ class Results extends React.Component {
     }
     componentDidMount() {
         var players = queryString.parse(this.props.location.search);
-        console.log(players);
+        log.debug(players);
         api.battle([
             players.playerOneName,
             players.playerTwoName
         ]).then(function(results) {
-            console.log(results);
+            log.debug(results);
 
             if (results === null) {
                 return this.stateState(function () {
@@ -121,6 +123,10 @@ class Results extends React.Component {
             </div>
         )
     }
+}
+
+Results.propTypes = {
+    location: PropTypes.object.isRequired
 }
 
 module.exports = Results;

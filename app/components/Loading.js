@@ -1,5 +1,6 @@
 var React = require('react');
 var PropTypes = require('prop-types');
+import * as log from 'loglevel';
 
 var styles = {
     content: {
@@ -38,7 +39,7 @@ class Loading extends React.Component {
     }
 
     componentWillUnmount() {
-        console.log('CLEAR THE INTERVAL');
+        log.info('CLEAR THE INTERVAL');
         window.clearInterval(this.interval);
     }
 

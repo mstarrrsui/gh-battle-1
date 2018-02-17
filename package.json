@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "elint": "eslint . — ext .js — ext .jsx — cache || true",
+    "elint": "eslint . — ext .js — ext .jsx — cache",
     "build": "cross-env NODE_ENV='production' webpack -p",
     "visualize": "cross-env NODE_ENV='visualize' webpack -p",
     "deploy": "npm run build && firebase deploy",
@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^0.17.0",
     "es6-promise": "^4.2.2",
+    "loglevel": "^1.6.1",
     "prop-types": "^15.6.0",
     "query-string": "^5.0.1",
     "react": "^16.0.0",
