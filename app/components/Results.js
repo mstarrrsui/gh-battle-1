@@ -13,7 +13,7 @@ import * as log from 'loglevel';
 function Profile (props) {
     
     var info = props.info;
-    log.debug(info);
+    log.info(info);
     return (
         <PlayerPreview avatar={info.avatar_url} username={info.login}>
             <ul className='space-list-items'>

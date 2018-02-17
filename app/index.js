@@ -4,12 +4,12 @@ var App = require('./components/App');
 
 
 
+
 require('./index.css');
 
 // state
 // lifecycle event
 // UI
-
 
 ReactDOM.render(
     <App />,

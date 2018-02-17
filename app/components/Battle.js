@@ -108,6 +108,8 @@ class Battle extends React.Component {
         var playerOneImage = this.state.playerOneImage;
         var playerTwoImage = this.state.playerTwoImage;
 
+        
+
         return (
             <div>
                 <div className="row">
