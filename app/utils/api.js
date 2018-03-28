@@ -1,11 +1,11 @@
 require("es6-promise").polyfill();
 import * as log from 'loglevel';
 
-var axios = require("axios");
+const axios = require("axios");
 
-var id = "acb3ea7e34c441da65e0";
-var sec = "07e4cd5a254f9c1e3cea9ed04620ba33f75381fb";
-var params = "?client_id=" + id + "&client_secret=" + sec;
+const id = "acb3ea7e34c441da65e0";
+const sec = "07e4cd5a254f9c1e3cea9ed04620ba33f75381fb";
+const params = `?client_id=${id}&client_secret=${sec}`;
 
 function getProfile(username) {
   return axios
