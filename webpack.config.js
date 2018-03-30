@@ -7,7 +7,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 var config = {
     entry: './app/index.js',
-    //devtool: 'cheap-module-eval-source-map',
+    //devtool: 'eval-source-map',
     output: {
         path: path.resolve(__dirname, "dist"), 
         filename: "index_bundle.js",
