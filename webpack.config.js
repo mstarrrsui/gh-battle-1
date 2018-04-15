@@ -6,7 +6,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 
 var config = {
-    entry: './app/index.js',
+    entry: ['babel-polyfill','./app/index.js'],
     //devtool: 'eval-source-map',
     output: {
         path: path.resolve(__dirname, "dist"), 

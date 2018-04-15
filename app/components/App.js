@@ -12,6 +12,8 @@ class App extends React.Component {
     log.setDefaultLevel(3);
     log.setLevel(1, true);
     log.debug("App Mounted");
+    log.info("App Mounted at INFO");
+    log.warn("App Mounted at WARN");
   }
 
   render() {
