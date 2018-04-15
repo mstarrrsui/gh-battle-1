@@ -1,18 +1,17 @@
-var React = require('react');
-var queryString = require('query-string');
-var api = require('../utils/api');
-var Link = require('react-router-dom').Link;
-var PropTypes = require('prop-types');
-var PlayerPreview = require('./PlayerPreview');
-var Loading = require('./Loading');
+const React = require('react');
+const queryString = require('query-string');
+const api = require('../utils/api');
+const Link = require('react-router-dom').Link;
+const PropTypes = require('prop-types');
+const PlayerPreview = require('./PlayerPreview');
+const Loading = require('./Loading');
 import * as log from 'loglevel';
 
 
 
 
-function Profile (props) {
+function Profile ({ info }) {
     
-    var info = props.info;
     log.info(info);
     return (
         <PlayerPreview avatar={info.avatar_url} username={info.login}>
@@ -33,12 +32,12 @@ Profile.propTypes = {
     info: PropTypes.object.isRequired    
 }
 
-function Player(props) {
+function Player({ label, score, profile }) {
     return (
         <div>
-            <h1 className='header'>{props.label}</h1>
-            <h3 style={{textAlign: 'center'}}>Score: {props.score}</h3>
-            <Profile info={props.profile}/>
+            <h1 className='header'>{label}</h1>
+            <h3 style={{textAlign: 'center'}}>Score: {score}</h3>
+            <Profile info={profile}/>
         </div>
     )
 }
@@ -62,30 +61,18 @@ class Results extends React.Component {
         };
     }
     componentDidMount() {
-        var players = queryString.parse(this.props.location.search);
-        log.debug(players);
-        api.battle([
-            players.playerOneName,
-            players.playerTwoName
-        ]).then(function(results) {
-            log.debug(results);
-
-            if (results === null) {
-                return this.stateState(function () {
-                    return {
-                        error: 'Looks like there was an error. Check that both users exist on GitHub'
-                    }
-                })
-            }
-            this.setState(function () {
-                return {
-                    error: null,
-                    winner: results[0],
-                    loser: results[1],
-                    loading: false
-                }
-            });
-        }.bind(this));
+        const {playerOneName, playerTwoName}  = queryString.parse(this.props.location.search);
+        api.battle([ playerOneName, playerTwoName])
+        .then( ([winner, loser]) => {
+            ( !winner  || !loser) 
+            ? this.setState( () => ({ error: 'Looks like there was an error. Check that both users exist on GitHub' }))
+            : this.setState( () => ({
+                error: null,
+                winner: winner,
+                loser: loser,
+                loading: false
+            }));
+        });
 
     }
 

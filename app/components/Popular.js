@@ -70,7 +70,7 @@ class Popular extends React.Component {
     }
 
     componentDidMount() {
-
+        
         var level = log.getLevel();
         log.warn("Popular:" + level)
 
