@@ -63,13 +63,19 @@ class Results extends React.Component {
     componentDidMount() {
         const {playerOneName, playerTwoName}  = queryString.parse(this.props.location.search);
         api.battle([ playerOneName, playerTwoName])
-        .then( ([winner, loser]) => {
-            ( !winner  || !loser) 
-            ? this.setState( () => ({ error: 'Looks like there was an error. Check that both users exist on GitHub' }))
-            : this.setState( () => ({
+        .then( (result) => {
+            
+            if (result === null) {
+                return this.setState( () => ({
+                    error: 'Looks like there was an error. Check that both users exist on GitHub',
+                    loading: false
+                }))
+            }
+
+            this.setState( () => ({
                 error: null,
-                winner: winner,
-                loser: loser,
+                winner: result[0],
+                loser: result[1],
                 loading: false
             }));
         });
