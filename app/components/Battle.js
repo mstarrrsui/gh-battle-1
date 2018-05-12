@@ -5,23 +5,25 @@ import PlayerPreview from './PlayerPreview'
 
 
 class PlayerInput extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            username: ''
-        }
-
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+    static propTypes = {
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+        onSubmit: PropTypes.func.isRequired
+    }
+    static defaultProps = {
+        label: 'Username' 
     }
 
-    handleChange(event) {
+    state = {
+        username: ''
+    }
+
+    handleChange = (event) => {
         const value = event.target.value;
         this.setState(() => ({ username : value }));
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
         this.props.onSubmit(
             this.props.id,
@@ -58,35 +60,28 @@ class PlayerInput extends React.Component {
     }
 }
 
-PlayerInput.propTypes = {
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    onSubmit: PropTypes.func.isRequired
-}
 
 class Battle extends React.Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            playerOneName: '',
-            playerTwoName: '',
-            playerOneImage: null,
-            playerTwoImage: null
-        }
-
-        this.handleChildSubmit = this.handleChildSubmit.bind(this);
-        this.handleChildReset = this.handleChildReset.bind(this);
+    static propTypes = {
+        match: PropTypes.object.isRequired
     }
 
-    handleChildSubmit(id, username) {
+    state = {
+        playerOneName: '',
+        playerTwoName: '',
+        playerOneImage: null,
+        playerTwoImage: null
+    }
+
+    handleChildSubmit = (id, username) =>  {
         this.setState(() => ({
             [`${id}Name`]: username,
             [`${id}Image`]: `https://github.com/${username}.png?size200`
         }))
     }
 
-    handleChildReset(id) {
+    handleChildReset = (id) => {
         this.setState(() => ({
             [`${id}Name`]: '',
             [`${id}Image`]: null
@@ -158,8 +153,5 @@ class Battle extends React.Component {
     }
 }
 
-Battle.propTypes = {
-    match: PropTypes.object.isRequired
-}
 
-module.exports = Battle; 
+export default Battle; 
