@@ -19,6 +19,10 @@ class Loading extends React.Component {
         text: 'Loading',
         speed: 300
     }
+    
+    state = {
+        text: this.props.text
+    };
 
     state = {
         text: this.props.text
