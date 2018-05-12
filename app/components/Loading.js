@@ -24,10 +24,6 @@ class Loading extends React.Component {
         text: this.props.text
     };
 
-    state = {
-        text: this.props.text
-    };
-
     componentDidMount() {
 
         const { text, speed } = this.props;
