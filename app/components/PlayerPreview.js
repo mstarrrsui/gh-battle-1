@@ -23,4 +23,4 @@ PlayerPreview.propTypes = {
     username: PropTypes.string.isRequired
 }
 
-module.exports = PlayerPreview;
+export default PlayerPreview;

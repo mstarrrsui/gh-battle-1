@@ -24,4 +24,4 @@ function Nav() {
     );    
 }
 
-module.exports = Nav; 
+export default Nav; 
