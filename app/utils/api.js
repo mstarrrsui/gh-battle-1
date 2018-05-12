@@ -1,6 +1,5 @@
 import * as log from 'loglevel';
-
-const axios = require("axios");
+import axios from "axios"
 
 const id = "acb3ea7e34c441da65e0";
 const sec = "07e4cd5a254f9c1e3cea9ed04620ba33f75381fb";
@@ -43,21 +42,20 @@ function sortPlayers(players) {
   return players.sort((a, b) => b.score - a.score);
 }
 
-module.exports = {
-  battle(players) {
-    return Promise
+export function battle(players) {
+  return Promise
       .all(players.map(getUserData))
       .then(sortPlayers)
       .catch(handleError);
-  },
+}
 
-  fetchPopularRepos(language) {
-    const encodedURI = window.encodeURI(
-      `https://api.github.com/search/repositories?q=stars:>1+language:${language}
-      &sort=stars&order=desc&type=Repositories`
-    );
+export function fetchPopularRepos(language) {
+  const encodedURI = window.encodeURI(
+    `https://api.github.com/search/repositories?q=stars:>1+language:${language}
+    &sort=stars&order=desc&type=Repositories`
+  );
 
-    return axios.get(encodedURI).then(({ data }) => data.items );
+  return axios.get(encodedURI).then(({ data }) => data.items );
+}
 
-  }
-};
+

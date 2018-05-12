@@ -1,5 +1,5 @@
 import React from 'react';
-var PropTypes = require('prop-types');
+import PropTypes from 'prop-types'
 
 function PlayerPreview({ avatar, username, children }) {
     return (

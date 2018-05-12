@@ -1,6 +1,6 @@
-var React = require('react');
-var PropTypes = require('prop-types');
-import * as log from 'loglevel';
+import React from 'react'
+import PropTypes from 'prop-types'
+import * as log from 'loglevel'
 
 const styles = {
     content: {

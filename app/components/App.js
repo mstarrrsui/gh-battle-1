@@ -1,11 +1,11 @@
-var React = require("react");
-var Popular = require("./Popular");
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./Nav";
 import Home from "./Home";
 import Battle from "./Battle";
 import Results from "./Results";
-var log = require("loglevel");
+import Popular from "./Popular";
+import log  from 'loglevel';
 
 class App extends React.Component {
   componentDidMount() {
