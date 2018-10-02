@@ -5,7 +5,7 @@ import Loading from './Loading'
 import log from "loglevel"
 
 function SelectLanguage({ selectedLanguage, onSelect }) {
-    var languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
+    var languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python']; //comment
 
     return (
 
@@ -33,7 +33,7 @@ function RepoGrid({ repos }) {
                         <img className='avatar'
                             src={owner.avatar_url}
                             alt={'Avatar for ' + owner.login} />
-                    </li> 
+                    </li>
                     <li>
                         <a href={html_url}>{name}</a>
                     </li>
@@ -65,7 +65,7 @@ class Popular extends React.Component {
     }
 
     componentDidMount() {
-        
+
         var level = log.getLevel();
         log.warn("Popular:" + level)
 
@@ -73,7 +73,7 @@ class Popular extends React.Component {
     }
 
     updateLanguage = (lang) => {
-        
+
         this.setState(() => ({
             selectedLanguage: lang,
             repos: null
@@ -95,9 +95,9 @@ class Popular extends React.Component {
                 { !this.state.repos
                 ? <Loading speed={90} text='DOWNLOADING'/>
                 : <RepoGrid repos={repos} /> }
-                
+
             </div>
-            
+
         )
     }
 }
